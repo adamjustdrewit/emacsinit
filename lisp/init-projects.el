@@ -7,5 +7,13 @@
 
   (maybe-require-package 'ibuffer-projectile))
 
+(when (maybe-require-package 'counsel-projectile)
+  (add-hook 'after-init-hook 'consel-projectile-find-file)
+  )
+
+(projectile-mode)
+(counsel-projectile-mode)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
 
 (provide 'init-projects)

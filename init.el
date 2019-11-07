@@ -35,7 +35,11 @@
 (require 'init-ivy)
 (require 'init-projects)
 (require 'init-shell)
+(require 'init-company)
 (require 'init-theme)
+
+(require 'init-git)
+(require 'init-javascript)
 
 
 ;;----------------------------------------------------------------------------

@@ -1,4 +1,4 @@
 (require-package 'all-the-icons)
-(set-face-attribute 'default t :font "Fira Mono")
+(set-frame-font "Hack" nil t)
 
 (provide 'init-typography)

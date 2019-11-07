@@ -47,9 +47,9 @@
 (global-linum-mode)
 
 ;; Represent undo-history as an actual tree (visualize with C-x u)
-(require-package 'undo-tree)
-(setq undo-tree-mode-lighter "")
-(global-undo-tree-mode)
+;; (require-package 'undo-tree)
+;; (setq undo-tree-mode-lighter "")
+;; (global-undo-tree-mode)
 
 (require 'hl-line)
 (global-hl-line-mode)
