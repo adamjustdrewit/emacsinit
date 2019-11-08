@@ -25,8 +25,6 @@
 (when (maybe-require-package 'git-commit)
   (add-hook 'git-commit-mode-hook 'goto-address-mode))
 
-(require 'init-git)
-
 (maybe-require-package 'yagist)
 (require-package 'bug-reference-github)
 (add-hook 'prog-mode-hook 'bug-reference-prog-mode)
@@ -35,4 +33,4 @@
 (maybe-require-package 'forge)
 (maybe-require-package 'github-review)
 
-(provide 'init-git)
+(provide 'init-gitcontrol)

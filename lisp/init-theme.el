@@ -2,20 +2,21 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'doom-themes)
-(require-package 'doom-modeline)
-;; some default settings for doom themes
-(setq doom-themes-enable-bold t 
-      doom-themes-enable-italic t)
-(doom-themes-visual-bell-config)
-(doom-themes-neotree-config)
-(doom-themes-org-config)
+(defun load-doom ()
+  (setq doom-themes-enable-bold t 
+	doom-themes-enable-italic t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-neotree-config)
+  (doom-themes-org-config))
 
-;;some default settings for doom modeline
-(doom-modeline-mode 1)
+(when (maybe-require-package 'doom-themes)
+  (load-doom))
+
+
+(when (maybe-require-package 'doom-modeline)
+  (doom-modeline-mode 1)
 (setq doom-modeline-buffer-encoding nil)
-(setq doom-modeline-vcs-max-length 12)
-
+(setq doom-modeline-vcs-max-length 12))
 
 
 ;; Don't prompt to confirm theme safety. This avoids problems with
@@ -53,7 +54,7 @@
 
 
 (when (maybe-require-package 'dimmer)
-  (setq-default dimmer-fraction 0.15)
+  (setq-default dimmer-fraction 0.45)
   (add-hook 'after-init-hook 'dimmer-mode)
   ;; TODO: file upstream as a PR
   (after-load 'dimmer

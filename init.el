@@ -29,6 +29,7 @@
 
 (require 'init-utils)
 (require 'init-elpa)
+(require 'init-theme)
 (require 'init-typography)
 (require 'init-better-ux)
 (require 'init-better-gui)
@@ -36,9 +37,12 @@
 (require 'init-projects)
 (require 'init-shell)
 (require 'init-company)
-(require 'init-theme)
 
-(require 'init-git)
+(require 'init-org)
+(require 'init-linguistics)
+(require 'init-snippets)
+
+(require 'init-gitcontrol)
 (require 'init-javascript)
 
 

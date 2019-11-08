@@ -4,7 +4,6 @@
 ;; company quick help requires diminish
 (require-package 'diminish)
 
-
 (when (maybe-require-package 'company)
   (add-hook 'after-init-hook 'global-company-mode)
   (after-load 'company
@@ -36,8 +35,8 @@
         (page-break-lines-mode 1)))
 
     (add-hook 'company-completion-started-hook 'sanityinc/page-break-lines-disable)
-    (add-hook 'company-after-completion-hook 'sanityinc/page-break-lines-maybe-reenable)))
-
-
+    (add-hook 'company-after-completion-hook 'sanityinc/page-break-lines-maybe-reenable)
+    (add-hook 'prog-mode-hook (company-mode))
+    (add-hook 'prog-mode-hook (company-quickhelp-mode))))
 
 (provide 'init-company)

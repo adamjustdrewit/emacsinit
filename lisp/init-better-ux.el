@@ -84,5 +84,8 @@
   (after-load 'ace-window)
   (global-set-key (kbd "M-p") 'ace-window))
 
+(when (maybe-require-package 'expand-region)
+  (add-hook 'after-init-hook (global-set-key (kbd "C-=") 'er/expand-region)))
+
 (provide 'init-better-ux)
 
