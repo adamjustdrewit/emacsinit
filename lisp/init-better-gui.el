@@ -37,6 +37,10 @@
 
 (setq nlinum-highlight-current-line 1)
 
+(when (maybe-require-package 'beacon)
+  (setq beacon-color "#FD4EC5")
+  (beacon-mode 1))
+
 
 (defun toggle-transparency ()
    (interactive)

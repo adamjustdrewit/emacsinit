@@ -44,7 +44,8 @@
 
 (require 'init-gitcontrol)
 (require 'init-javascript)
-
+(require 'init-css)
+(require 'init-html)
 
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient

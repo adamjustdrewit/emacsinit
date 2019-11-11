@@ -26,6 +26,13 @@
 (define-key drewit/javascript-test-prefix-map (kbd "f") 'mocha-test-file)
 (define-key drewit/javascript-test-prefix-map (kbd "t") 'mocha-test-at-point)
 
+(defvar drewit/javascript-refactor-prefix-map (make-sparse-keymap)
+  "A kepmap for refactorings")
+(define-key drewit/javascript-refactor-prefix-map (kbd "r") 'tide-rename-symbol)
+(define-key drewit/javascript-refactor-prefix-map (kbd "f") 'tide-format)
+(define-key drewit/javascript-refactor-prefix-map (kbd ".") 'tide-refactor)
+(define-key drewit/javascript-refactor-prefix-map (kbd "d") 'tide-jsdoc-template)
+
 (when (maybe-require-package 'js2-mode)
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
   (add-hook 'js2-mode-hook (lambda ()
@@ -34,7 +41,9 @@
 			   (setup-tide-mode)
 			   (setup-indenting)
 			   (define-key global-map (kbd "C-c t") drewit/javascript-test-prefix-map)
+			   (define-key global-map (kbd "C-c r") drewit/javascript-refactor-prefix-map)
 			   (origami-mode))))
+
 
 
 

@@ -16,18 +16,26 @@
   (setq org-todo-keywords
 	'((sequence "TODO(t)" "RSCH(r)" "BUGG(b)" "InPr" "PARK(p)" "|" "DONE(d)" "DLGT(D)"))
 	)
-  (setq org-agenda-files '("E:/docs/.org/todo.org"))
+  (setq org-todo-keyword-faces
+	'(("RSCH" . "purple") ("DONE" . "deep sky blue") ("BUGG" . "red") ("DLGT" . "light sea green") ("InPr" . "green") ("PARK" . "tomato") ("TODO" . "deep pink"))
+	)
+  (setq org-agenda-files '("E:/dropbox/Dropbox/.org/lf-todo.org"))
   ;;capture todo items using C-c c t
   (define-key global-map (kbd "C-c c") 'org-capture)
   (setq org-capture-templates
-	'(("t" "todo" entry (file+headline "E:/docs/.org/todo.org" "Tasks")
+	'(("t" "todo" entry (file+headline "E:/dropbox/Dropbox/.org/lf-todo.org" "Tasks")
 	   "* TODO  %?\nSCHEDULED: %t")
-	  ("r" "refactoring" entry (file+headline "E:/docs/.org/refactorings.org" "Todo")
+	  ("r" "refactoring" entry (file+headline "E:/dropbox/Dropbox/.org/refactorings.org" "Todo")
 	   "* TODO %?")))
   ;;open agenda in current window
   (setq org-agenda-window-setup (quote current-window)))
 
-(add-hook 'after-init-hook 'drewit/setup-org)
+(drewit/setup-org)
+
+(defun drewit/my-org-archive-done-tasks ()
+  (interactive)
+  (org-map-entries 'org-archive-subtree "/DONE" 'file))
+
 
 (provide 'init-org)
 

@@ -39,4 +39,5 @@
     (add-hook 'prog-mode-hook (company-mode))
     (add-hook 'prog-mode-hook (company-quickhelp-mode))))
 
+
 (provide 'init-company)
