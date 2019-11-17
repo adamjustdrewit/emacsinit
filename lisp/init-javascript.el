@@ -40,8 +40,8 @@
 			   (company-mode)
 			   (setup-tide-mode)
 			   (setup-indenting)
-			   (define-key global-map (kbd "C-c t") drewit/javascript-test-prefix-map)
-			   (define-key global-map (kbd "C-c r") drewit/javascript-refactor-prefix-map)
+			   (local-set-key (kbd "C-c t") drewit/javascript-test-prefix-map)
+			   (local-set-key (kbd "C-c r") drewit/javascript-refactor-prefix-map)
 			   (origami-mode))))
 
 

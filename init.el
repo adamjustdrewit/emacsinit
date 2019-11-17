@@ -44,6 +44,7 @@
 
 (require 'init-gitcontrol)
 (require 'init-javascript)
+(require 'init-csharp)
 (require 'init-css)
 (require 'init-html)
 
