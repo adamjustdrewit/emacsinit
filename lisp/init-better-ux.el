@@ -44,7 +44,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (show-paren-mode 1)
-(global-linum-mode)
+(global-nlinum-mode)
 
 ;; Represent undo-history as an actual tree (visualize with C-x u)
 ;; (require-package 'undo-tree)
@@ -56,6 +56,11 @@
 
 ;; A decent tree menu should be build in
 (require-package 'neotree)
+
+;;hide nlinum in neotree
+(defun drewit/neotree-hook (_unused)
+  (nlinum-mode -1))
+(add-hook 'neo-after-create-hook 'drewit/neotree-hook)
 
 ;; Stop neotree from being annoying and refreshing
 (setq neo-autorefresh nil)
@@ -86,6 +91,44 @@
 
 (when (maybe-require-package 'expand-region)
   (add-hook 'after-init-hook (global-set-key (kbd "C-=") 'er/expand-region)))
+
+(defun drewit/setup-indent (n)
+  ;; java/c/c++
+  (setq-local c-basic-offset n)
+  ;; web development
+  (setq-local coffee-tab-width n) ; coffeescript
+  (setq-local css-indent-offset n) ; css-mode
+  )
+
+(defun drewit/code-style ()
+  (interactive)
+  (message "My personal code style!")
+  ;; use space instead of tab
+  (setq indent-tabs-mode nil)
+  ;; indent 2 spaces width
+  (drewit/setup-indent 2))
+
+(defun drewit/old-code-style ()
+  (interactive)
+  (message "My personal code style!")
+  ;; use space instead of tab
+  (setq indent-tabs-mode nil)
+  ;; indent 2 spaces width
+  (drewit/setup-indent 4))
+
+(drewit/code-style)
+(add-hook 'prog-mode-hook 'drewit/old-code-style)
+
+(when (maybe-require-package 'flycheck-inline)
+  (with-eval-after-load 'flycheck
+    (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)))
+
+(defun drewit/switch-to-minibuffer-window ()
+    "switch to minibuffer window (if active)"
+    (interactive)
+    (when (active-minibuffer-window)
+        (select-window (active-minibuffer-window))))
+(global-set-key (kbd "<f7>") #'drewit/switch-to-minibuffer-window)
 
 (provide 'init-better-ux)
 

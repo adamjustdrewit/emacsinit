@@ -24,7 +24,7 @@
 (setq custom-safe-themes t)
 
 ;; If you don't customize it, this is the theme you get.
-(setq-default custom-enabled-themes '(doom-outrun-electric))
+(setq-default custom-enabled-themes '(doom-laserwave))
 
 ;; Ensure that themes will be applied even if they have not been customized
 (defun reapply-themes ()
@@ -49,7 +49,7 @@
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
-  (setq custom-enabled-themes '(doom-outrun-electric))
+  (setq custom-enabled-themes '(doom-laserwave))
   (reapply-themes))
 
 
@@ -59,6 +59,10 @@
   ;; TODO: file upstream as a PR
   (after-load 'dimmer
     (advice-add 'frame-set-background-mode :after (lambda (&rest args) (dimmer-process-all)))))
+
+(when (maybe-require-package 'solaire-mode)
+  (solaire-global-mode +1)
+  (solaire-mode-swap-bg))
 
 
 (provide 'init-theme)

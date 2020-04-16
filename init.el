@@ -16,8 +16,6 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 
-(package-initialize)
-
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'init-benchmarking) ;; Measure startup time
 
@@ -26,6 +24,13 @@
 ;; Don't be so stingy on the memory, we have lots now. It's the distant future.
 ;; Set this up at the start so it's nice and fast
 (setq gc-cons-threshold 20000000)
+
+;; UTF-8 please
+(setq locale-coding-system 'utf-8) ; pretty
+(set-terminal-coding-system 'utf-8) ; pretty
+(set-keyboard-coding-system 'utf-8) ; pretty
+(set-selection-coding-system 'utf-8) ; please
+(prefer-coding-system 'utf-8) ; with sugar on top
 
 (require 'init-utils)
 (require 'init-elpa)
@@ -47,6 +52,7 @@
 (require 'init-csharp)
 (require 'init-css)
 (require 'init-html)
+(require 'init-vue)
 
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
@@ -64,3 +70,4 @@
 
 (require 'init-startup)
 
+(put 'downcase-region 'disabled nil)
