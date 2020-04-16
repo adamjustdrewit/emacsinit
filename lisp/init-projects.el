@@ -15,5 +15,6 @@
 (counsel-projectile-mode)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
+(setq projectile-globally-ignored-directories '("-/node_modules")
 
 (provide 'init-projects)
