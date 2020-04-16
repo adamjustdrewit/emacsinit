@@ -1,6 +1,5 @@
-(require-package 'eshell-toggle)
-(require 'eshell-toggle)
-(global-set-key (kbd "C-`") 'eshell-toggle)
+(require-package 'shell-pop)
+(global-set-key (kbd "C-`") 'shell-pop)
 
 
 (provide 'init-shell)
